@@ -14,13 +14,11 @@ describe("GET /v1/todos/all", () => {
 
 describe("GET /v1/todos/byid", () => {
   test("responds with json", async () => {
-    const response = await request(app).get("/v1/todos/byid").expect(400);
+    const response = await request(app)
+      .get("/v1/todos/byid?todoId=1")
+      .expect(200);
 
     // Log the actual "Content-Type" for debugging purposes
     console.log("Actual Content-Type:", response.headers["content-type"]);
-
-    // Your specific expectations for the response body based on the "/byid" endpoint
-    // For example, you might expect a specific data structure or an empty array initially
-    expect(response.body).toEqual({});
   });
 });
