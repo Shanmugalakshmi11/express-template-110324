@@ -36,7 +36,7 @@ TodosRouter.get("/byuserid", async (req, res) => {
 });
 
 TodosRouter.get("/all", async (req, res) => {
-  const todos = await TodoModel.findAll();
+  const todos = await TodoModel.findAll({ limit: 10 });
   res.status(StatusCodes.OK).send(todos);
 });
 
